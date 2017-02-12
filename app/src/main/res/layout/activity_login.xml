@@ -1,6 +1,157 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/colorBackground"
+    android:orientation="vertical">
 
-</LinearLayout>
+    <ImageView
+        android:id="@+id/imageLogo"
+        android:layout_width="200dp"
+        android:layout_height="175dp"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:src="@drawable/logosend" />
+
+    <RelativeLayout
+        android:id="@+id/relativeWebsite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageLogo"
+        android:layout_centerHorizontal="true">
+
+        <TextView
+            android:id="@+id/txtWebsiteLevel001"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="send"
+            android:textColor="@color/foreground_material_light"
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/txtWebsiteLevel002"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/txtWebsiteLevel001"
+            android:text="location"
+            android:textColor="@color/colorLogoWebsite"
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/txtWebsiteLevel003"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/txtWebsiteLevel002"
+            android:text=".com"
+            android:textColor="@color/foreground_material_light"
+            android:textSize="25sp" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/txtInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/relativeWebsite"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="Chế độ ngoại tuyến (cần GPS)"
+        android:textColor="@color/foreground_material_light"
+        android:textSize="20dp" />
+
+
+    <RelativeLayout
+        android:id="@+id/relativeForm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtInfo"
+        android:layout_marginTop="15dp"
+        android:padding="20dp">
+
+        <TextView
+            android:id="@+id/txtUsername"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tài khoản"
+            android:textSize="20dp" />
+
+        <EditText
+            android:id="@+id/editUsername"
+            android:inputType="text"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtUsername" />
+
+        <TextView
+            android:id="@+id/txtPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/editUsername"
+            android:text="Mật khẩu"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/txtForgetPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/editUsername"
+            android:layout_marginTop="15dp"
+            android:text="Quên mật khẩu?"
+            android:textSize="20dp" />
+
+        <EditText
+            android:id="@+id/editPassword"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtPassword"
+            android:inputType="textPassword" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:padding="20dp">
+
+        <Button
+            android:id="@+id/btnLogin"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorLogoWebsite"
+            android:textColor="@color/colorBackground"
+            android:text="Đăng nhập" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btnLogin"
+            android:layout_marginTop="10dp"
+            android:text="Chưa có tài khoản?"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/txtRegister"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/btnLogin"
+            android:layout_marginTop="10dp"
+            android:text="ĐĂNG KÝ"
+            android:textSize="25dp" />
+
+    </RelativeLayout>
+
+    <com.wang.avi.AVLoadingIndicatorView
+        android:id="@+id/avi"
+        style="@style/AVLoadingIndicatorView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:visibility="visible"
+        app:indicatorColor="@color/colorAccent"
+        app:indicatorName="BallClipRotateIndicator" />
+</RelativeLayout>

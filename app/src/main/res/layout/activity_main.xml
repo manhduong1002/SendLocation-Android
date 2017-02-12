@@ -1,151 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    android:orientation="vertical"
-    android:background="@color/colorBackground"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:map="http://schemas.android.com/apk/res-auto"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android">
-    <ImageView
-        android:layout_gravity="center"
-        android:id="@+id/imageLogo"
-        android:layout_width="180.0dip"
-        android:layout_height="90dip"
-        android:src="@drawable/logosend"
-        android:maxWidth="150.0dip"
-        android:maxHeight="150.0dip"
-        android:layout_centerHorizontal="true" />
-    <LinearLayout android:orientation="vertical"
-        android:id="@+id/linerLayoutLogin"
-        android:background="@color/colorBackground2"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20.0dip"
-        android:layout_marginRight="20.0dip"
-        android:layout_below="@+id/imageLogo"
-        xmlns:android="http://schemas.android.com/apk/res/android">
-        <LinearLayout android:orientation="vertical"
-            android:id="@+id/linerLayoutLoginP"
-            android:background="@color/colorBackground2"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="20.0dip"
-            xmlns:android="http://schemas.android.com/apk/res/android">
-            <View android:background="@color/colorBlue2"
-                android:layout_width="fill_parent"
-                android:layout_height="2.0dip"
-                android:layout_marginTop="10.0dip" />
-            <TextView android:textSize="11.0sp"
-                android:id="@+id/textview02"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10.0dip"
-                android:textColor="@color/foreground_material_light"
-                android:text="会員登録されている方" />
-            <TextView android:textSize="11.0sp"
-                android:id="@+id/textview03"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/foreground_material_light"
-                android:layout_marginTop="10.0dip"
-                android:text="ご登録されているメールアドレス（ログインID)とパスワードを入力して「ログイン」ボタンをクリックしてください。" />
-            <TextView android:textSize="10.0sp"
-                android:id="@+id/textview04"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10.0dip"
-                android:textColor="@color/foreground_material_light"
-                android:text="▼メールアドレス（ログインID)" />
-            <EditText android:id="@+id/editTextUsername"
-                android:background="@drawable/black"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPersonName" />
-            <TextView android:textSize="10.0sp"
-                android:id="@+id/textview05"
-                android:textColor="@color/foreground_material_light"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10.0dip"
-                android:text="▼パスワード" />
-            <EditText android:id="@+id/editTextPassword"
-                android:background="@drawable/black"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:ems="10" android:inputType="textPassword" />
-            <Button android:layout_gravity="center"
-                android:id="@+id/buttonLogin"
-                android:background="@drawable/login_button"
-                android:layout_width="170.0dip"
-                android:layout_height="39.0dip"
-                android:layout_marginTop="20.0dip"
-                android:textAlignment="center" />
-            <TextView android:id="@+id/txtOutput"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20.0dip"
-                android:ems="10" />
-        </LinearLayout>
-    </LinearLayout>
-    <FrameLayout android:orientation="vertical"
-        android:layout_width="fill_parent"
-        android:layout_height="120.0dip"
-        android:layout_marginTop="30.0dip"
-        android:layout_alignParentBottom="true">
-        <RelativeLayout android:background="@color/colorBlue"
+    android:id="@+id/root_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <fragment
+            android:id="@+id/mapview"
+            android:name="com.google.android.gms.maps.MapFragment"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:layout_marginTop="30.0dip">
-            <ImageView android:layout_gravity="center|left|top"
-                android:id="@+id/imageViewLove"
-                android:layout_width="100.0dip"
-                android:layout_height="100.0dip"
-                android:src="@drawable/lovefair_logo"
-                android:maxWidth="250.0dip"
-                android:maxHeight="250.0dip" />
-            <RelativeLayout android:orientation="vertical"
-                android:layout_width="fill_parent"
+            android:layout_below="@+id/txtInput" />
+
+        <EditText
+            android:id="@+id/txtInput"
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/black"
+            android:hint="Nhập địa chỉ tại đây" />
+
+        <android.support.percent.PercentRelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true">
+
+            <ImageView
+                android:id="@+id/imageSettings"
                 android:layout_height="fill_parent"
-                android:layout_toRightOf="@+id/imageViewLove">
-                <TextView android:textSize="10.0sp"
-                    android:id="@+id/textview07"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/foreground_material_light"
-                    android:text="発達障がい者の転職・求人なら" />
-                <TextView android:textSize="10.0sp"
-                    android:id="@+id/textview08"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/foreground_material_light"
-                    android:text="発達障がい者雇用に精通したキャリアコンサルタント"
-                    android:layout_below="@+id/textview07" />
-                <TextView android:textSize="10.0sp"
-                    android:id="@+id/textview09"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/foreground_material_light"
-                    android:text="豊富な求人・仕事の情報などに役立つサービスが満載。"
-                    android:layout_below="@+id/textview08" />
-                <TextView android:textSize="10.0sp"
-                    android:id="@+id/textview10"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/foreground_material_light"
-                    android:text="会社情報 | 個人情報保護方針 | 免責事項 | サイトマップ | 掲載ご希望の企業様"
-                    android:layout_alignParentBottom="true" />
-            </RelativeLayout>
-        </RelativeLayout>
-    </FrameLayout>
-    <com.wang.avi.AVLoadingIndicatorView
-        android:id="@+id/avi"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        style="@style/AVLoadingIndicatorView"
-        android:visibility="visible"
-        app:indicatorName="BallClipRotateIndicator"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        app:indicatorColor="@color/colorAccent" />
-</RelativeLayout>
+                app:layout_widthPercent="20%"
+                android:src="@drawable/buttonsettings" />
+
+            <ImageView
+                android:id="@+id/imageFriend"
+                android:layout_height="fill_parent"
+                app:layout_widthPercent="20%"
+                android:layout_toRightOf="@+id/imageSettings"
+                android:src="@drawable/buttonfriend" />
+
+            <ImageView
+                android:id="@+id/imageHistory"
+                android:layout_height="fill_parent"
+                app:layout_widthPercent="20%"
+                android:layout_toRightOf="@+id/imageFriend"
+                android:src="@drawable/buttonhistory" />
+
+            <ImageView
+                android:id="@+id/imageMyLocation"
+                app:layout_widthPercent="20%"
+                android:layout_height="fill_parent"
+                android:layout_toRightOf="@+id/imageHistory"
+                android:src="@drawable/buttonmylocation" />
+        </android.support.percent.PercentRelativeLayout>
+    </RelativeLayout>
+</FrameLayout>
